@@ -7,11 +7,10 @@ import java.sql.Statement;
 
 public class ConexaoBanco {
 	private static final String DRIVER = "org.postgresql.Driver";   
-	private static final String URL = "jdbc:postgresql:";   
-	private static final String USERNAME = "";   
-	private static final String PASSWORD = ""; 
-	private static Connection conexao;
-    private static final String CRIAR_TABELAS = "";
+	private static final String URL = "jdbc:postgresql://localhost:5432/Projeto01Web";   
+	private static final String USERNAME = "postgres";   
+	private static final String PASSWORD = "1234"; 
+	
 	
 	public static Connection getConnection() throws SQLException {
 		try {   
@@ -20,9 +19,7 @@ public class ConexaoBanco {
 			System.out.println("Where is your PostgreSQL JDBC Driver? Include in your library path!");   
 			return null;   
 		}   
-		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-		Statement stmt = conexao.createStatement();
-        stmt.execute(CRIAR_TABELAS);
+		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);   
 		return conn;   
 	}
 }
