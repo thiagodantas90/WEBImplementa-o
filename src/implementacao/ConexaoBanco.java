@@ -1,9 +1,8 @@
-package webimplementacao;
+package implementacao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ConexaoBanco {
 	private static final String DRIVER = "org.postgresql.Driver";   

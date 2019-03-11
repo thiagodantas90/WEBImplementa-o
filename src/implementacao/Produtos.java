@@ -1,4 +1,4 @@
-package webimplementacao;
+package implementacao;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,15 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webimplementacao.*;
-
-@WebServlet("/ListaProdutosServlet")
-public class ListaProdutosServlet extends HttpServlet {
+@WebServlet("/Produtos")
+public class Produtos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("nome");
-		response.getWriter().append("Hello, " + name +".");
-		
+			
 
 		Connection connection = null;
 	    try {   
@@ -33,15 +30,9 @@ public class ListaProdutosServlet extends HttpServlet {
 	    	response.getWriter().append("A conexão com o banco falhou!");
 	    }
 
-		
-//		try {
-//			connection.close();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();}
-//		}
-//	
 	}
+	    
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
