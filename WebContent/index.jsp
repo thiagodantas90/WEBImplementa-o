@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="POST" action="http://localhost:8080/implementacao/LoginServlet?usuario=usuario&senha=senha">
+<form method="POST" action="http://localhost:8080/implementacao/LoginServlet?">
 	Usuário<br><input type="text" name="usuario" id="usuario">
 	<br>Senha<br><input type="password" name="senha" id="senha"><br>
 	<input type="submit" name="Entrar" id="entrar" value="Enviar">
