@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import persistencia.ConexaoBanco;
 import persistencia.UsuariosDAO;
 
 /**
@@ -32,19 +33,18 @@ public class CadastroCliente extends HttpServlet {
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		//cadastrarCliente(nome, email, senha);
 		ConexaoBanco conect = new ConexaoBanco();
-		String CADASTRARCLIENTE = "INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)";
+		
 		try {
             conect.getConnection();
           
             PreparedStatement prepararInstrucao;
-            prepararInstrucao = conect.getConexao().prepareStatement(CADASTRARCLIENTE);
+            prepararInstrucao = conect.getConexao().prepareStatement("INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)");
             
             prepararInstrucao.setString(1, nome);
             prepararInstrucao.setString(2, email);
             prepararInstrucao.setString(3, senha);
-           
+           //erro nessa linha
             prepararInstrucao.execute();
            
             conect.desconecta();
@@ -52,25 +52,7 @@ public class CadastroCliente extends HttpServlet {
         } catch (SQLException ex) {
             System.out.println("PAROU");
         }
-//		if() {
-//			out.print("Cadastro Realizado");
-//			out.print("<html>"
-//					+ "<a href=\"index.jsp\">Voltar</a>"						
-//					+ "</html>");
-//		}else{
-//			out.print("Cadastro não Realizado");
-//			out.print("<html>"
-//					+ "<a href=\"CadastrarCliente.jsp\">Tentar novamente</a>"						
-//					+ "</html>");
-//		}
 		out.close();
 	}
-
-	private void cadastrarCliente(String nome, String email, String senha) {
-		// TODO Auto-generated method stub
-		
-		
-	}
-
 
 }

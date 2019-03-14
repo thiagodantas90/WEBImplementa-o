@@ -9,7 +9,7 @@
 <body>
 	<form method=POST action="CadastrarProduto">
 	Nome:<input type="text" name="nome"><br>
-	Descriçaõ:<input type="text" name="descricao"><br>
+	Descrição:<input type="text" name="descricao"><br>
 	Preço Unitário:<input type="text" name="preco"><br>
 	Quantidade:<input type="text" name="Qauntidade"><br>
 	<input type="submit" value="CADASTRAR">

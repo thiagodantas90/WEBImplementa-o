@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import persistencia.ConexaoBanco;
+
 @WebServlet("/CadastrarProduto")
 public class CadastrarProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,7 +34,7 @@ public class CadastrarProduto extends HttpServlet {
             prepararInstrucao.setString(2, descricao);
             prepararInstrucao.setString(3, preco_unt);
             prepararInstrucao.setString(4, quant);
-           
+           //erronessa linha
             prepararInstrucao.execute();
            
             conect.desconecta();

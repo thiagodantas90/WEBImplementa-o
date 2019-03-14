@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import implementacao.ConexaoBanco;
-
 public class UsuariosDAO {
 	ConexaoBanco conect = new ConexaoBanco();
 	
@@ -22,6 +20,7 @@ public class UsuariosDAO {
             prepararInstrucao.setString(1, nome);
             prepararInstrucao.setString(2, email);
             prepararInstrucao.setString(3, senha);
+            
             prepararInstrucao.execute();
            
             conect.desconecta();
@@ -29,6 +28,9 @@ public class UsuariosDAO {
         } catch (SQLException ex) {
             System.out.println("PAROU");
         }
-   }
+	}
+	public void consultarUsuario() {
+		
+	}
 	
 }
