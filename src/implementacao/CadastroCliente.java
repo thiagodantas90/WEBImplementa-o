@@ -32,8 +32,26 @@ public class CadastroCliente extends HttpServlet {
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		
-		cadastrarCliente(nome, email, senha);
+		//cadastrarCliente(nome, email, senha);
+		ConexaoBanco conect = new ConexaoBanco();
+		String CADASTRARCLIENTE = "INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)";
+		try {
+            conect.getConnection();
+          
+            PreparedStatement prepararInstrucao;
+            prepararInstrucao = conect.getConexao().prepareStatement(CADASTRARCLIENTE);
+            
+            prepararInstrucao.setString(1, nome);
+            prepararInstrucao.setString(2, email);
+            prepararInstrucao.setString(3, senha);
+           
+            prepararInstrucao.execute();
+           
+            conect.desconecta();
+            
+        } catch (SQLException ex) {
+            System.out.println("PAROU");
+        }
 //		if() {
 //			out.print("Cadastro Realizado");
 //			out.print("<html>"
@@ -50,29 +68,7 @@ public class CadastroCliente extends HttpServlet {
 
 	private void cadastrarCliente(String nome, String email, String senha) {
 		// TODO Auto-generated method stub
-		ConexaoBanco conect = new ConexaoBanco();
-		String CADASTRARCLIENTE = "INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)";
-		try {
-            conect.getConnection();
-          
-            PreparedStatement prepararInstrucao;
-            prepararInstrucao = conect.getConexao().prepareStatement(CADASTRARCLIENTE);
-            
-            prepararInstrucao.setString(1, nome);
-            System.out.println("1");
-            prepararInstrucao.setString(2, email);
-            System.out.println("2");
-            prepararInstrucao.setString(3, senha);
-            System.out.println("3");
-           
-            prepararInstrucao.execute();
-            System.out.println("Executando");
-           
-            conect.desconecta();
-            
-        } catch (SQLException ex) {
-            System.out.println("PAROU");
-        }
+		
 		
 	}
 
