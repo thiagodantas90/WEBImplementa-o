@@ -12,7 +12,6 @@ public class ConexaoBanco {
 	private static final String PASSWORD = "1234"; 
 	private Connection conexao;
 	
-	
 //	public static Connection getConnection() throws SQLException {
 //		try {   
 //			Class.forName(DRIVER);   
@@ -26,6 +25,7 @@ public class ConexaoBanco {
 //	public static void desconecta () throws SQLException {
 //		getConnection().close();
 //	}
+	
 	  public void getConnection() {
 	        try {
 	            Class.forName(DRIVER); //Carrega o driver (inicializa um objeto da classe org.postgresql.Driver) 

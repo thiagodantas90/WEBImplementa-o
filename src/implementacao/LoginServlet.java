@@ -20,19 +20,8 @@ public class LoginServlet extends HttpServlet {
 		UsuariosDAO usuario = new UsuariosDAO(); 
 		String usr = request.getParameter("usuario");
 		String pass = request.getParameter("senha");
-		
-		PrintWriter out = response.getWriter();
-		
-				out.print(usr);
-				out.print(pass);
-				out.close();
-		
-		verificarUsuario();
-		
-	}
 
-	private void verificarUsuario() {
-		// TODO Auto-generated method stub
+		usuario.consultarUsuario(usr, pass);
 		
 	}
 

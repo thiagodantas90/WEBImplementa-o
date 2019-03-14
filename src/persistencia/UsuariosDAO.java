@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UsuariosDAO {
+	
 	ConexaoBanco conect = new ConexaoBanco();
 	
 	private final String CADASTRARCLIENTE = "INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)";
@@ -20,7 +21,8 @@ public class UsuariosDAO {
             prepararInstrucao.setString(1, nome);
             prepararInstrucao.setString(2, email);
             prepararInstrucao.setString(3, senha);
-            
+
+            //erro nessa linha
             prepararInstrucao.execute();
            
             conect.desconecta();
@@ -29,8 +31,11 @@ public class UsuariosDAO {
             System.out.println("PAROU");
         }
 	}
-	public void consultarUsuario() {
+	public void consultarUsuario(String usr, String pass) {
+		
+		
 		
 	}
+
 	
 }

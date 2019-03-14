@@ -26,33 +26,15 @@ public class CadastroCliente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		//UsuariosDAO usr = new UsuariosDAO();
+		
+		UsuariosDAO usr = new UsuariosDAO();
+		
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		ConexaoBanco conect = new ConexaoBanco();
+		usr.cadastrarCliente(nome, email, senha);
 		
-		try {
-            conect.getConnection();
-          
-            PreparedStatement prepararInstrucao;
-            prepararInstrucao = conect.getConexao().prepareStatement("INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)");
-            
-            prepararInstrucao.setString(1, nome);
-            prepararInstrucao.setString(2, email);
-            prepararInstrucao.setString(3, senha);
-           //erro nessa linha
-            prepararInstrucao.execute();
-           
-            conect.desconecta();
-            
-        } catch (SQLException ex) {
-            System.out.println("PAROU");
-        }
-		out.close();
 	}
 
 }
