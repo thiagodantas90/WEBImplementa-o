@@ -17,12 +17,20 @@ public class LoginServlet extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		UsuariosDAO usuario = new UsuariosDAO(); 
 		String usr = request.getParameter("usuario");
 		String pass = request.getParameter("senha");
-
-		usuario.consultarUsuario(usr, pass);
+		String resposta = usuario.consultarUsuario(usr, pass);
 		
+		out.print(resposta);
+		
+//		if(usuario.consultarUsuario(usr, pass)) {
+//			out.print("usuário Cadastrado"+usr);
+//		}else {
+//			out.print("usuário não encontrado");
+//		}
+//		out.close();
 	}
 
 }

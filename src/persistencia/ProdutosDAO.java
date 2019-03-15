@@ -25,6 +25,7 @@ public class ProdutosDAO {
             
         } catch (SQLException ex) {
             System.out.println("PAROU");
+            System.out.println(ex);
         }
 	}
 	public void ListarProdutos() {
