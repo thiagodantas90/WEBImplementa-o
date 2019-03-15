@@ -24,17 +24,15 @@ public class UsuariosDAO {
             prepararInstrucao.setString(2, email);
             prepararInstrucao.setString(3, senha);
 
-            //erro nessa linha
             prepararInstrucao.execute();
            
             conect.desconecta();
-            
         } catch (SQLException ex) {
             System.out.println("PAROU");
             System.out.println(ex);
         }
 	}
-	public String consultarUsuario(String email, String pass) {
+	public void consultarUsuario(String email, String pass) {
 		 try {
 	            conect.getConnection();
 	            PreparedStatement prepararInstrucao;
@@ -45,16 +43,13 @@ public class UsuariosDAO {
 	            ResultSet rs = prepararInstrucao.executeQuery();
 	                            
 	           String nome = rs.getString("NOME_CLIENTE");
-	                		 //rs.getDouble(""));
-	            return nome;
+	                		
 	            
 	        } catch (SQLException ex) {
 	            
 	        }
 		 
-		 conect.desconecta();
-		return null;
-		 
+		 conect.desconecta();		 
 		
 	}
 

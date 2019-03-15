@@ -8,7 +8,7 @@
 </head>
 <body>
 <form method="POST" action="LoginServlet?">
-	Usuário<br><input type="text" name="usuario" id="usuario">
+	E-mail<br><input type="text" name="usuario" id="usuario">
 	<br>Senha<br><input type="password" name="senha" id="senha"><br>
 	<input type="submit" name="Entrar" id="entrar" value="Enviar"><br>
 	<a href="CadastrarCliente.jsp">Cadastre-se</a>;

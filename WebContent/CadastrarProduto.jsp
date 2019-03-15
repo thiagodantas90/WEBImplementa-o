@@ -7,6 +7,7 @@
 <title>Cadastrar Produto</title>
 </head>
 <body>
+<h1>Cadastrar Produto</h1>
 	<form method=POST action="CadastrarProduto">
 	Nome:<input type="text" name="nome"><br>
 	Descrição:<input type="text" name="descricao"><br>

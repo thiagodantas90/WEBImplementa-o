@@ -26,7 +26,7 @@ public class CadastroCliente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		PrintWriter out = response.getWriter();
 		UsuariosDAO usr = new UsuariosDAO();
 		
 		String nome = request.getParameter("nome");
@@ -34,6 +34,7 @@ public class CadastroCliente extends HttpServlet {
 		String senha = request.getParameter("senha");
 		
 		usr.cadastrarCliente(nome, email, senha);
+		
 		
 	}
 

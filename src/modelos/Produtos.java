@@ -1,7 +1,7 @@
 package modelos;
 
 public class Produtos {
-	public Produtos(int id, int preco, String nome, String descricao, int estoque) {
+	public Produtos(int id, String preco, String nome, String descricao, int estoque) {
 		super();
 			this.id = id;
 			this.preco = preco;
@@ -10,7 +10,7 @@ public class Produtos {
 			this.estoque = estoque;
 	}
 		int id;
-		int preco;
+		String preco;
 		String nome;
 		String Descricao;
 		int estoque;
@@ -20,10 +20,10 @@ public class Produtos {
 		public void setId(int id) {
 		this.id = id;
 		}
-		public int getPreco() {
+		public String getPreco() {
 		return preco;
 		}
-		public void setPreco(int preco) {
+		public void setPreco(String preco) {
 		this.preco = preco;
 		}
 		public String getNome() {
