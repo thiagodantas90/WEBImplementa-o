@@ -30,7 +30,7 @@ ALTER TABLE public.clientes
   id_lojista serial NOT NULL,
   nome_lojista character(100) NOT NULL,
   email_lojista character(100),
-  senha character(20),
+  senha_lojista character(20),
   CONSTRAINT pk_lojista PRIMARY KEY (id_lojista)
 )
 WITH (
@@ -46,7 +46,7 @@ ALTER TABLE public.lojistas
   id_produto serial NOT NULL,
   nome_produto character(50) NOT NULL,
   descricao_produto character(50),
-  preco_unitario character(10),
+  preco_unitario numeric(10),
   quantidade integer,
   CONSTRAINT pk_nome_produto PRIMARY KEY (id_produto)
 )

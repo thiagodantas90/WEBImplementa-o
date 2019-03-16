@@ -32,9 +32,11 @@ public class UsuariosDAO {
             System.out.println(ex);
         }
 	}
+	
 	public void consultarUsuario(String email, String pass) {
 		 try {
 	            conect.getConnection();
+	            
 	            PreparedStatement prepararInstrucao;
 	            prepararInstrucao = conect.getConexao().prepareStatement(CONSULTARUSUARIO);
 	            
@@ -42,7 +44,7 @@ public class UsuariosDAO {
 	            prepararInstrucao.setString(2, pass);
 	            ResultSet rs = prepararInstrucao.executeQuery();
 	                            
-	           String nome = rs.getString("NOME_CLIENTE");
+	            rs.getString("NOME_CLIENTE");
 	                		
 	            
 	        } catch (SQLException ex) {

@@ -9,7 +9,8 @@ public class ConexaoBanco {
 	private static final String DRIVER = "org.postgresql.Driver";   
 	private static final String URL = "jdbc:postgresql://localhost:5432/projeto01web";   
 	private static final String USERNAME = "postgres";   
-	private static final String PASSWORD = "postgres"; 
+	private static final String PASSWORD = "1234"; 
+	//private static final String CRIARTABELAS= "INIT=runscript from '~/persistencia/Script.sql'";
 	private Connection conexao;
 	
 //	public static Connection getConnection() throws SQLException {
@@ -31,8 +32,8 @@ public class ConexaoBanco {
 	            Class.forName(DRIVER); //Carrega o driver (inicializa um objeto da classe org.postgresql.Driver) 
 	            conexao = DriverManager.getConnection(URL, USERNAME, PASSWORD); //Cria a conexao
 	            System.out.println("Banco conectado");
-	            //Statement stmt = conexao.createStatement();
-	            //stmt.execute(CRIAR_TABELAS);
+//	            Statement stmt = conexao.createStatement();
+//	            stmt.execute(CRIARTABELAS);
 	        } catch (Exception e) {
 	            System.err.println(e);
 	            e.printStackTrace();

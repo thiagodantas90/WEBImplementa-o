@@ -1,6 +1,7 @@
 package implementacao;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -19,13 +20,23 @@ public class CadastrarProduto extends HttpServlet {
 
 	protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProdutosDAO produto = new ProdutosDAO();
+		PrintWriter out = response.getWriter();
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-		String preco_unt = request.getParameter("preco");
-		String quant = request.getParameter("quantidade");
+		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+		double preco = Double.parseDouble(request.getParameter("preco"));
 		
-		produto.CadastrarProduto(nome, descricao, preco_unt, quant);
-	
+		if(produto.CadastrarProduto(nome, descricao, preco, quantidade)) {
+			
+			out.print("<html>"
+					+ "<h1>Produto Cadastrado</h1><br>"
+					+ "<a href=\"CadastrarProduto.jsp\">Cadastrar Novo Produto || </a>"
+					+ "<a href=\"ProdutosLista.jsp\">Produtos </a>"
+					+ "</html>");
+		}
+		//produto.CadastrarProduto(nome, descricao, preco, quantidade);
+		//conm
+		out.close();
 		
 	}
 

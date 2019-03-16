@@ -12,7 +12,7 @@
 	Nome:<input type="text" name="nome"><br>
 	Descrição:<input type="text" name="descricao"><br>
 	Preço Unitário:<input type="text" name="preco"><br>
-	Quantidade:<input type="text" name=quantidade"><br>
+	Quantidade:<input type="text" name="quantidade"><br>
 	<input type="submit" value="CADASTRAR">
 	</form>
 

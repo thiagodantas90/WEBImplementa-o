@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import persistencia.UsuariosDAO;
 
@@ -23,6 +24,7 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("senha");
 		
 		usuario.consultarUsuario(usr, pass);
+		HttpSession novo = (HttpSession) new LoginServlet();
 		
 		
 //		if(usuario.consultarUsuario(usr, pass)) {

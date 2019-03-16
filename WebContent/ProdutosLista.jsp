@@ -18,11 +18,12 @@
 		<th>Descrição</th>
 		<th>Preço Unitário</th>
 		<th>Quantidade</th>
+		<th>Carrinho</th>
 	</tr>
 	
  	<%ArrayList<Produtos> produtosLista = new ArrayList();
  		ProdutosDAO p = new ProdutosDAO();
- 		produtosLista = p.ListarProdutos();
+ 		produtosLista.addAll(p.ListarProdutos());
  		
  		for(int i=0; i<produtosLista.size();i++){%>
  			<tr>
@@ -30,6 +31,11 @@
  				<td><%=produtosLista.get(i).getDescricao()%></td>
  				<td><%=produtosLista.get(i).getPreco()%></td>
  				<td><%=produtosLista.get(i).getEstoque() %></td>
+ 				<td><%if(produtosLista.get(i).getEstoque()>0){%>
+ 							<a>Adicionar</a>	
+ 						<%}else{%>
+ 							<td>Sem estoque</td>
+ 						<%}%>
  			</tr>
  		<%}%>
 	</table>

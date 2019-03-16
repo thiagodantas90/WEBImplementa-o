@@ -10,8 +10,7 @@ import modelos.Produtos;
 public class ProdutosDAO {
 	ConexaoBanco conect = new ConexaoBanco();
 	
-	public void CadastrarProduto(String nome, String descricao, String preco_unt, String quant) {
-		
+	public boolean CadastrarProduto(String nome, String descricao, double preco, int quant) {
 		try {
             conect.getConnection();
           
@@ -20,33 +19,34 @@ public class ProdutosDAO {
             
             prepararInstrucao.setString(1, nome);
             prepararInstrucao.setString(2, descricao);
-            prepararInstrucao.setString(3, preco_unt);
-            prepararInstrucao.setString(4, quant);
+            prepararInstrucao.setDouble(3, preco);
+            prepararInstrucao.setInt(4, quant);
            //erronessa linha
             prepararInstrucao.execute();
            
             conect.desconecta();
-            
+            return true;
         } catch (SQLException ex) {
             System.out.println("PAROU");
             System.out.println(ex);
         }
+		return false;
 	}
 	public ArrayList<Produtos> ListarProdutos() {
-		ArrayList<Produtos> produtos = new ArrayList();
+		ArrayList<Produtos> produtos = new ArrayList<>();
 		Produtos p;
 		
 		try {
             conect.getConnection();
             PreparedStatement prepararInstrucao;
-            prepararInstrucao = conect.getConexao().prepareStatement("SELECT NOME_PRODUTO, PRECO_UNITARIO, QUANTIDADE FROM PRODUTOS");
+            prepararInstrucao = conect.getConexao().prepareStatement("SELECT NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE FROM PRODUTOS");
             
             ResultSet rs = prepararInstrucao.executeQuery();
-            while (rs.next()) {                
-                p = new Produtos(rs.getInt("ID_PRODUTO"),rs.getString("NOME_PRODUTO"),rs.getString("DESCRICAO_PRODUTO"),rs.getString("PRECO_UNITARIO"), rs.getInt("QUANTIDADE"));
+            while (rs.next()) {            	
+                p = new Produtos(rs.getDouble("PRECO_UNITARIO"), rs.getString("NOME_PRODUTO"), rs.getString("DESCRICAO_PRODUTO"), rs.getInt("QUANTIDADE"));
                 produtos.add(p);
             }
-            
+            conect.desconecta();
         } catch (SQLException ex) {
             
         }
