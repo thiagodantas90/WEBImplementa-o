@@ -1,12 +1,4 @@
--- SERVER
-CREATE DATABASE projeto01Web
-  WITH OWNER = postgres
-      ENCODING = 'UTF8'
-      TABLESPACE = pg_default
-      LC_COLLATE = 'Portuguese_Brazil.1252'
-      LC_CTYPE = 'Portuguese_Brazil.1252'
-      CONNECTION LIMIT = -1;
-
+﻿--CRIAR AS TABELAS
 
 -- CLIENTES
 CREATE TABLE public.clientes
@@ -46,7 +38,7 @@ ALTER TABLE public.lojistas
   id_produto serial NOT NULL,
   nome_produto character(50) NOT NULL,
   descricao_produto character(50),
-  preco_unitario numeric(10),
+  preco_unitario character(10),
   quantidade integer,
   CONSTRAINT pk_nome_produto PRIMARY KEY (id_produto)
 )

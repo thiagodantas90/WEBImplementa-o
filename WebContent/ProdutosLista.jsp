@@ -34,7 +34,7 @@
  				<td><%if(produtosLista.get(i).getEstoque()>0){%>
  							<a>Adicionar</a>	
  						<%}else{%>
- 							<td>Sem estoque</td>
+ 							Sem estoque
  						<%}%>
  			</tr>
  		<%}%>

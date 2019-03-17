@@ -42,7 +42,8 @@ public class UsuariosDAO {
 	            conect.getConnection();
 	            	            
 	            PreparedStatement prepararInstrucao = null;
-	            String SQL = "SELECT * FROM CLIENTES WHERE EMAIL_CLIENTE ='"+email+"'";
+	            String SQL = "SELECT * FROM CLIENTES WHERE UPPER(EMAIL_CLIENTE) LIKE" 
+	            		+ "'%' || '"+email+"' || '%'";
 	            prepararInstrucao = conect.getConexao().prepareStatement(SQL);
 	           	            
 	            prepararInstrucao.setString(1, email);
