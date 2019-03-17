@@ -29,12 +29,21 @@ public class CadastroCliente extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		UsuariosDAO usr = new UsuariosDAO();
 		
-		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
+		String nome = request.getParameter("nome").toUpperCase();
+		String email = request.getParameter("email").toUpperCase();
 		String senha = request.getParameter("senha");
 		
-		usr.cadastrarCliente(nome, email, senha);
-		
+		if(nome==""||email==""||senha=="") {
+			out.print("ATENÇÃO: Há campos em Branco<br><br>"
+					+ "<html>"
+					+ "<input type=\"button\" onclick='history.go(-1)' value=\"VOLTAR AO CADASTRO\">"
+					+ "</html>");
+		}else{
+			if(usr.cadastrarCliente(nome, email, senha)) {
+				out.print("Cadastrado"						
+						+ "<a href=\"index.jsp\">Fazer Login</a>");
+			}
+		}
 		
 	}
 

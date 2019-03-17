@@ -8,10 +8,13 @@
 </head>
 <body>
 <form method="POST" action="LoginServlet?">
-	E-mail<br><input type="text" name="usuario" id="usuario">
-	<br>Senha<br><input type="password" name="senha" id="senha"><br>
-	<input type="submit" name="Entrar" id="entrar" value="Enviar"><br>
-	<a href="CadastrarCliente.jsp">Cadastre-se</a>;
+	E-mail<br><input type="text" name="email">
+	<br>Senha<br><input type="password" name="senha"><br>
+	<input type="submit" name="Entrar" value="Enviar"><br>
+	
+	<a href="CadastrarCliente.jsp">Cadastre-se</a><br>
+	
+	<a href="AreaRestrita.jsp">Área Restrita</a>
 </form>
 </body>
 </html>

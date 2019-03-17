@@ -48,7 +48,7 @@ public class ProdutosDAO {
             }
             conect.desconecta();
         } catch (SQLException ex) {
-            
+        	System.out.println(ex);
         }
 		
 		return produtos;
