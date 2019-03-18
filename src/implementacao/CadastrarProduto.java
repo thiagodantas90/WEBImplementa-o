@@ -26,14 +26,22 @@ public class CadastrarProduto extends HttpServlet {
 		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 		double preco = Double.parseDouble(request.getParameter("preco"));
 		
-		if(produto.CadastrarProduto(nome, descricao, preco, quantidade)) {
-			
-			out.print("<html>"
-					+ "<h1>Produto Cadastrado</h1><br>"
-					+ "<a href=\"CadastrarProduto.jsp\">Cadastrar Novo Produto || </a>"
-					+ "<a href=\"ProdutosLista.jsp\">Produtos </a>"
-					+ "</html>");
+		
+		if(nome==""||descricao==""||quantidade==0||preco==0){
+			out.print("Campos invalidos<br>"
+					+ "<input type=\"button\" onclick='history.go(-1)' value=\"VOLTAR AO CADASTRO\">");
+		}else{
+			if(produto.CadastrarProduto(nome, descricao, preco, quantidade)) {
+				
+				out.print("<html>"
+						+ "<h1>Produto Cadastrado</h1><br>"
+						+ "<a href=\"CadastrarProduto.jsp\">Cadastrar Novo Produto || </a>"
+						+ "<a href=\"ProdutosLista.jsp\">Produtos </a>"
+						+ "</html>");
+			}
 		}
+		
+		
 		//produto.CadastrarProduto(nome, descricao, preco, quantidade);
 		//conm
 		out.close();

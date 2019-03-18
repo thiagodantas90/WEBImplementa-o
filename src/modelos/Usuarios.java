@@ -10,18 +10,9 @@ public class Usuarios {
 		this.senha = senha;
 	}
 
-	public Usuarios(int id, String email, String senha, String nome) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.id = id;
-	}
-
 	public Usuarios() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	public String getNome() {
 		return nome;
@@ -46,6 +37,15 @@ public class Usuarios {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 		
 }

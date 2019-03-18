@@ -15,6 +15,7 @@
 	Quantidade:<input type="text" name="quantidade"><br>
 	<input type="submit" value="CADASTRAR">
 	</form>
+	<a href="ProdutosLista.jsp">Produtos</a>
 
 </body>
 </html>

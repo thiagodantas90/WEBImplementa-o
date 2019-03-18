@@ -36,17 +36,28 @@ public class LoginServlet extends HttpServlet {
 		ArrayList<Usuarios> listaC = new ArrayList<>();
 		listaC.addAll(usuario.ListarClientes());
 		
-		for(int i = 0 ; i<listaC.size();i++) {
-			System.out.println("entrou no for");
-			if(listaC.get(i).getEmail().equals(email) && listaC.get(i).getSenha().equals(pass)) {
-					System.out.println("OK");
-					break;
-			}else {
-				System.out.println("erro");
-			}
-		}
-			
+		//System.out.println("Tamanho da lista: "+ listaC.size());
 		
+		if(email=="" || pass=="" ) {
+			out.print("campo em branco<br>"
+					+ "<input type=\"button\" onclick='history.go(-1)' value=\"VOLTAR AO LOGIN\">");
+		}else{
+			int cont = 0;
+			for(int i = 0 ; i<listaC.size();i++) {
+				if(listaC.get(i).getEmail().contains(email) && listaC.get(i).getSenha().contains(pass)){
+					request.getSession().setAttribute(email, cliente);
+					response.sendRedirect("ProdutosLista.jsp");
+					break;			
+				}else {
+					cont++;
+				}
+			}
+			
+			if(cont==listaC.size()) {
+				out.print("E-mail ou senha invalidos<br>"
+						+ "<input type=\"button\" onclick='history.go(-1)' value=\"VOLTAR AO LOGIN\">");
+			}
+		}		
 	
 		//System.out.printf(cliente.getNome(), cliente.getEmail());
 //		

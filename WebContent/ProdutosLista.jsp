@@ -32,13 +32,14 @@
  				<td><%=produtosLista.get(i).getPreco()%></td>
  				<td><%=produtosLista.get(i).getEstoque() %></td>
  				<td><%if(produtosLista.get(i).getEstoque()>0){%>
- 							<a>Adicionar</a>	
+ 							<a href="/CarrinhoProdutos.java">Adicionar</a>	
  						<%}else{%>
  							Sem estoque
  						<%}%>
  			</tr>
  		<%}%>
 	</table>
+	<a href="MeuCarrinho.jsp">Ver carrinho</a>
 	
 </body>
 </html>
