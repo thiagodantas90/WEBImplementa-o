@@ -2,6 +2,7 @@ package modelos;
 
 public class Usuarios {
 	private String nome, email, senha;
+	private int id;
 
 	public Usuarios(String nome, String email, String senha) {
 		this.nome = nome;
@@ -9,9 +10,18 @@ public class Usuarios {
 		this.senha = senha;
 	}
 
+	public Usuarios(int id, String email, String senha, String nome) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.id = id;
+	}
+
 	public Usuarios() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	public String getNome() {
 		return nome;

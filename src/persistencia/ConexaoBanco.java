@@ -9,7 +9,7 @@ public class ConexaoBanco {
 	private static final String DRIVER = "org.postgresql.Driver";   
 	private static final String URL = "jdbc:postgresql://localhost:5432/projeto01web";   
 	private static final String USERNAME = "postgres";   
-	private static final String PASSWORD = "1234"; 
+	private static final String PASSWORD = "brasil123"; 
 	//private static final String CRIARTABELAS= "INIT=runscript from '~/persistencia/Script.sql'";
 	private Connection conexao;
 	

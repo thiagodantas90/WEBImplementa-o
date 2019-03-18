@@ -1,8 +1,10 @@
 package persistencia;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import modelos.Usuarios;
 
@@ -12,7 +14,7 @@ public class UsuariosDAO {
 	Usuarios usr;
 	
 	private final String CADASTRARCLIENTE = "INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES (?,?,?)";
-	//private final String CONSULTARUSUARIO = "SELECT * FROM CLIENTES WHERE EMAIL_CLIENTE =;
+	private final String CONSULTARUSUARIO = "SELECT * FROM CLIENTES WHERE EMAIL_CLIENTE = ('?')";
 	private final String CONSULTARUSUARIOLOJA = "SELECT * FROM LOJISTAS WHERE NOME_CLIENTE = (?)";
 		
 	public boolean cadastrarCliente(String nome, String email, String senha) {
@@ -37,14 +39,38 @@ public class UsuariosDAO {
 		return false;
 	}
 	
+	public ArrayList<Usuarios> ListarClientes(){
+		ArrayList<Usuarios> lista = new ArrayList<>();
+		int i =0;
+//		Usuarios usr = new Usuarios();
+		conect.getConnection();
+		PreparedStatement prepararInstrucao;
+		try {
+			prepararInstrucao = conect.getConexao().prepareStatement("SELECT * FROM CLIENTES");
+			 ResultSet rs = prepararInstrucao.executeQuery();
+	            while (rs.next()){
+	            	Usuarios usr = new Usuarios(rs.getInt("ID_CLIENTE"), rs.getString("NOME_CLIENTE"), rs.getString("EMAIL_CLIENTE"), rs.getString("SENHA_CLIENTE"));
+	            	lista.add(usr);
+	            	System.out.println(lista.size());
+	            	System.out.println(i++);
+	            }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("erro ao lista");
+			e.printStackTrace();
+		}
+		return lista;
+		
+	}
+	
 	public Usuarios consultarUsuario(String email) {
 		  try {
 	            conect.getConnection();
 	            	            
-	            PreparedStatement prepararInstrucao = null;
-	            String SQL = "SELECT * FROM CLIENTES WHERE UPPER(EMAIL_CLIENTE) LIKE" 
-	            		+ "'%' || '"+email+"' || '%'";
-	            prepararInstrucao = conect.getConexao().prepareStatement(SQL);
+	            PreparedStatement prepararInstrucao;
+//	            String SQL = "SELECT * FROM CLIENTES WHERE UPPER(EMAIL_CLIENTE) LIKE" 
+//	            		+ "'%' || '"+email+"' || '%'";
+	            prepararInstrucao = conect.getConexao().prepareStatement(CONSULTARUSUARIO);
 	           	            
 	            prepararInstrucao.setString(1, email);
 	            ResultSet rs = prepararInstrucao.executeQuery();
