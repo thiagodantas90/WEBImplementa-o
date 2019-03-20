@@ -1,33 +1,37 @@
 package modelos;
 
 import java.util.ArrayList;
+import modelos.Produtos;
 
 public class Carrinho {
+
 	public Carrinho(ArrayList<Produtos> produtos) {
 		super();
 		this.produtos = produtos;
-		}
+	}
 		ArrayList<Produtos> produtos;
-		public ArrayList<Produtos> getProdutos() {
+	public ArrayList<Produtos> getProdutos() {
 		return produtos;
-		}
-		public void setProdutos(ArrayList<Produtos> produtos) {
+	}
+		
+	public void setProdutos(ArrayList<Produtos> produtos) {
 		this.produtos = produtos;
-		}
-		public Produtos getProduto (int id){
+	}
+		
+	public Produtos getProduto (int id){
 		Produtos mp = null;
 		for (Produtos p : produtos){
-		if (p.getId() == id){
-		return p;
-		}
+			if (p.getId() == id){
+				return p;
+			}
 		}
 		return mp;
-		}
-		public void removeProduto (int id){
+	}
+	public void removeProduto (int id){
 		Produtos p = getProduto(id);
 		produtos.remove(p);
-		}
-		public void addProduto (Produtos p){
+	}
+	public void addProduto (Produtos p){
 		produtos.add(p);
-		}
+	}
 }

@@ -25,14 +25,15 @@
  		ProdutosDAO p = new ProdutosDAO();
  		produtosLista.addAll(p.ListarProdutos());
  		
- 		for(int i=0; i<produtosLista.size();i++){%>
+ 		for(int i=0; i<produtosLista.size();i++){ %>
  			<tr>
- 				<td><%=produtosLista.get(i).getNome()%></td>
- 				<td><%=produtosLista.get(i).getDescricao()%></td>
- 				<td><%=produtosLista.get(i).getPreco()%></td>
+ 				<td name="nome" id=<%=i%>><%=produtosLista.get(i).getNome()%></td>
+ 				<td name="descricao" id=<%=i%>><%=produtosLista.get(i).getDescricao()%></td>
+ 				<td name="preco" id=<%=i%>><%=produtosLista.get(i).getPreco()%></td>
  				<td><%=produtosLista.get(i).getEstoque() %></td>
- 				<td><%if(produtosLista.get(i).getEstoque()>0){%>
- 							<a href="/CarrinhoProdutos.java">Adicionar</a>	
+ 				
+ 				<td name="enviar" id=<%=i%>><%if(produtosLista.get(i).getEstoque()>0){%>
+ 						<a  href="/implementacao/CarrinhoProdutos?">Adicionar</a>
  						<%}else{%>
  							Sem estoque
  						<%}%>
