@@ -25,11 +25,11 @@ public class CarrinhoProdutos extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
 		String preco= request.getParameter("preco");
-		
-		ArrayList<Produtos> listaProdutos =new ArrayList<>();
-		Produtos prod = new Produtos();
-		listaProdutos.add(prod);
-		Carrinho carro = new Carrinho();
+//		
+//		ArrayList<Produtos> listaProdutos =new ArrayList<>();
+//		Produtos prod = new Produtos();
+//		listaProdutos.add(prod);
+//		Carrinho carro = new Carrinho();
 		
 		out.print("você está no seu carrinho");
 	}

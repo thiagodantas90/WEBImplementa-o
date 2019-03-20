@@ -7,11 +7,10 @@ import java.sql.Statement;
 
 public class ConexaoBanco {
 	private static final String DRIVER = "org.postgresql.Driver";   
-	private static final String URL = "jdbc:postgresql://localhost:5432/projeto01web";   
-	private static final String USERNAME = "postgres";   
-	private static final String PASSWORD = "1234"; 
+	private static final String URL = "jdbc:postgresql://ec2-54-83-50-174.compute-1.amazonaws.com:5432/d8r3he84v9kfkj?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";   
+	private static final String USERNAME = "gtjwfkeqjkoyra";   
+	private static final String PASSWORD = "aac67cff60d379fb01b0640ac924ef20ddd230f7cff9f41b2410f60bf2de1dcc"; 
 	private static final String CRIARTABELAS= "--CRIAR AS TABELAS" + 
-			"" + 
 			"-- CLIENTES" + 
 			"CREATE TABLE public.clientes" + 
 			"(" + 
@@ -21,13 +20,6 @@ public class ConexaoBanco {
 			"  senha_cliente character(20)," + 
 			"  CONSTRAINT id_cliente PRIMARY KEY (id_cliente)" + 
 			")" + 
-			"WITH (" + 
-			"  OIDS=FALSE" + 
-			");" + 
-			"ALTER TABLE public.clientes" + 
-			"  OWNER TO postgres;" + 
-			"" + 
-			"" + 
 			"-- LOJISTAS" + 
 			"  CREATE TABLE public.lojistas" + 
 			"(" + 
@@ -37,13 +29,6 @@ public class ConexaoBanco {
 			"  senha_lojista character(20)," + 
 			"  CONSTRAINT pk_lojista PRIMARY KEY (id_lojista)" + 
 			")" + 
-			"WITH (" + 
-			"  OIDS=FALSE" + 
-			");" + 
-			"ALTER TABLE public.lojistas" + 
-			"  OWNER TO postgres;" + 
-			"" + 
-			"" + 
 			"-- PRODUTOS" + 
 			"  CREATE TABLE public.produtos" + 
 			"(" + 
@@ -53,12 +38,25 @@ public class ConexaoBanco {
 			"  preco_unitario character(10)," + 
 			"  quantidade integer," + 
 			"  CONSTRAINT pk_nome_produto PRIMARY KEY (id_produto)" + 
-			")" + 
-			"WITH (" + 
-			"  OIDS=FALSE" + 
-			");" + 
-			"ALTER TABLE public.produtos" + 
-			"  OWNER TO postgres;";
+			")"
+			+ "-- Preencher as tabelas.\r\n" + 
+			"
+			"INSERT INTO LOJISTAS (NOME_LOJISTA, EMAIL_LOJISTA, SENHA_LOJISTA) VALUES ('TANIRO RODRIGUES','TANIRO@GMAIL.COM','123456abc');\r\n" + 
+			"INSERT INTO LOJISTAS (NOME_LOJISTA, EMAIL_LOJISTA, SENHA_LOJISTA) VALUES ('LORENA SILVA','LORE_SIL@YAHOO.COM.BR', '12uhuu@');\r\n" + 
+			"\r\n" + 
+			"INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES ('João Pedro', 'jp2017@uol.com.br', '12345jaum');\r\n" + 
+			"INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES ('Amara Silva', 'amarasil@bol.com.br','amara82');\r\n" + 
+			"INSERT INTO CLIENTES (NOME_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE) VALUES ('Maria Pereira', 'mariape@terra.com.br', '145aektm');\r\n" + 
+			"\r\n" + 
+			"INSERT INTO PRODUTOS (NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE) VALUES ('Mesa','Uma mesa de computador', 10, 0);\r\n" + 
+			"INSERT INTO PRODUTOS (NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE) VALUES ('Lapis','Lapis B2 grafite', 15, 0);\r\n" + 
+			"INSERT INTO PRODUTOS (NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE) VALUES ('Caneta','Caneca BIC azul', 7, 1);\r\n" + 
+			"INSERT INTO PRODUTOS (NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE) VALUES ('Telefone','Telefone fixo antigo', 8, 1);\r\n" + 
+			"INSERT INTO PRODUTOS (NOME_PRODUTO, DESCRICAO_PRODUTO, PRECO_UNITARIO, QUANTIDADE) VALUES ('Computador','Computador Intel', 1000, 1);\r\n" + 
+			"\r\n" + 
+			"\r\n" + 
+			"\r\n" + 
+			"";
 	private Connection conexao;
 	
 //	public static Connection getConnection() throws SQLException {
